@@ -50,4 +50,27 @@ public class File
         heapify(A, 0, size - 1);
         return top;
     }
+
+    public static void heapsort(int[] A)
+    {
+        int n = A.length;
+        int i = (n - 2) / 2;
+
+        while (i >= 0) {
+            heapify(A, i--, n);
+        }
+
+        while (n > 0)
+        {
+            A[n - 1] = pop(A, n);
+            n--;
+        }
+    }
+
+    public static void main(String[] args)
+    {
+        int[] A = { 6, 4, 7, 1, 9, -2 };
+        heapsort(A);
+        System.out.println(Arrays.toString(A));
+    }
 }
